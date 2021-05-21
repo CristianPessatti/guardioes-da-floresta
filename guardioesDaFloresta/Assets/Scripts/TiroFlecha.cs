@@ -11,6 +11,9 @@ public class TiroFlecha : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
+	public float delayAfterShot = 1.5f;
+	private float nextShot = 0.0f;
+
     void Update()
     {
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -18,8 +21,10 @@ public class TiroFlecha : MonoBehaviour
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.time > nextShot)
         {
+            nextShot = Time.time + delayAfterShot;
+
             GameObject bulletClone = Instantiate(bullet);
             bulletClone.transform.position = firePoint.position;
             bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
