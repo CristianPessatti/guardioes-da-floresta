@@ -18,7 +18,7 @@ public class MataInimigo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "inimigo") {
-            Object.Destroy(other.gameObject);
+            other.GetComponent<Saude>().dano(10);
             Object.Destroy(gameObject);
         }
     }
