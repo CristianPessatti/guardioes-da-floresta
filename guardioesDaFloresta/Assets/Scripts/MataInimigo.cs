@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MataInimigo : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public float bulletSpeed = 1;
+    public Rigidbody2D rb;
+   
     void Start()
     {
-        
+        rb.velocity = transform.right * bulletSpeed;
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         

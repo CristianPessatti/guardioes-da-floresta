@@ -10,14 +10,14 @@ public class Controller : MonoBehaviour {
     public Transform groundCheck;
     public LayerMask ground;
 
-    // public Animator animator;
+    public Animator animator;
 
     private float moveX;
-    // private bool facingRight = true;
+    private bool facingRight = true;
     private bool isGrounded;
 
     void Start() {
-        // animator = gameObject.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update() {
@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour {
     }
 
     void LateUpdate() {
-        // faceSide();
+        faceSide();
     }
 
     void movePlayer() {
@@ -38,8 +38,8 @@ public class Controller : MonoBehaviour {
             jump();
 
         // ANIMACOES
-        // animator.SetBool("IsGrounded", isGrounded);
-        // animator.SetBool("Correndo", moveX != 0);
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetBool("Correndo", moveX != 0);
 
         // ATAQUE
         // if(Input.GetMouseButtonDown(0))
@@ -50,18 +50,18 @@ public class Controller : MonoBehaviour {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight);
     }
 
-    // void faceSide() {
-    //     if(moveX > 0)
-    //         facingRight = true;
-    //     else if(moveX < 0)
-    //         facingRight = false;
+     void faceSide() {
+         if(moveX > 0)
+             facingRight = true;
+         else if(moveX < 0)
+             facingRight = false;
 
-    //     Vector2 scale = transform.localScale;
-    //     if((scale.x > 0 && !facingRight) || (scale.x < 0 && facingRight)) {
-    //         scale.x = scale.x * -1;
-    //         transform.localScale = scale;
-    //     }
-    // }
+         Vector2 scale = transform.localScale;
+         if((scale.x > 0 && !facingRight) || (scale.x < 0 && facingRight)) {
+             scale.x = scale.x * -1;
+             transform.localScale = scale;
+         }
+    }
 
     // void OnCollisionEnter2D(Collision2D other) {
     //     if(other.gameObject.tag == "PlataformaMovel") 

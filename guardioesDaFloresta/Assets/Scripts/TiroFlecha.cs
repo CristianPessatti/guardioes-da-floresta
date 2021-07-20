@@ -4,32 +4,25 @@ using UnityEngine;
 
 public class TiroFlecha : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject flecha;
     public Transform firePoint;
-    public float bulletSpeed = 50;
-
-    Vector2 lookDirection;
-    float lookAngle;
 
 	public float delayAfterShot = 1.5f;
 	private float nextShot = 0.0f;
 
     void Update()
     {
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
-        firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
         if (Input.GetMouseButtonDown(0) && Time.time > nextShot)
         {
             nextShot = Time.time + delayAfterShot;
 
-            GameObject bulletClone = Instantiate(bullet);
-            bulletClone.transform.position = firePoint.position;
-            bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-
-            bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
+            Atirar();
         }
+    }
+
+    void Atirar()
+    {
+        Instantiate(flecha, firePoint.position, firePoint.rotation);
     }
 }
