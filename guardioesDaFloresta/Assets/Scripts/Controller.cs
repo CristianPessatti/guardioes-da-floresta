@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour {
     private float moveX;
     private bool facingRight = true;
     private bool isGrounded;
+    private bool virar = false;
 
     void Start() {
         animator = gameObject.GetComponent<Animator>();
@@ -56,10 +57,12 @@ public class Controller : MonoBehaviour {
          else if(moveX < 0)
              facingRight = false;
 
-         Vector2 scale = transform.localScale;
-         if((scale.x > 0 && !facingRight) || (scale.x < 0 && facingRight)) {
-             scale.x = scale.x * -1;
-             transform.localScale = scale;
+        Quaternion escala = transform.localRotation;
+        Debug.Log(escala.y);
+        if ((escala.y < 0.5 && !facingRight) || (escala.y > 0.5 && facingRight)) {
+             escala.y = virar ? 180 : 0;
+             virar = !virar;
+             transform.localRotation = escala;
          }
     }
 

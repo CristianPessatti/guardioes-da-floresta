@@ -6,6 +6,7 @@ TagManager:
   tags:
   - flecha
   - inimigo
+  - Plataforma
   layers:
   - Default
   - TransparentFX

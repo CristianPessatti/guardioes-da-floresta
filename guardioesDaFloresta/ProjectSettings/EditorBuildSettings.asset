@@ -5,10 +5,55 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 25f9dd0d46bc02143b0e25fb1301d084
+    guid: 56b3d6952e3c7794d98f9a6b0cc2132b
   - enabled: 1
-    path: Assets/Scenes/teste.unity
+    path: Assets/Scenes/Historia01.unity
+    guid: 4188e075067c99d498ea43ed981197d4
+  - enabled: 1
+    path: Assets/Scenes/Historia02.unity
+    guid: afc0b52b3bec9fd429f4c5cbc9018fd3
+  - enabled: 1
+    path: Assets/Scenes/Historia03.unity
+    guid: c4d8bf0b1916d344a9ae117790601bcb
+  - enabled: 1
+    path: Assets/Scenes/EscolherPersonagem.unity
+    guid: 87a429f9f79e9d94fa2ba09e30b88305
+  - enabled: 0
+    path: Assets/Scenes/Fase01.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Fase01-.unity
+    guid: 259e50a358b2ff645b98884c13798c41
+  - enabled: 1
+    path: Assets/Scenes/Transicao01-02.unity
+    guid: 762cc0ab15367864eb572e47267585fd
+  - enabled: 1
+    path: Assets/Scenes/Fase02.unity
+    guid: f57a9aaff04017d4882234692dac7c84
+  - enabled: 1
+    path: Assets/Scenes/Transicao02-03.unity
+    guid: c4edc4dd5f2e65f41adb8f2940d82f33
+  - enabled: 1
+    path: Assets/Scenes/Fase03.unity
+    guid: 647757d76092b4540a26f01e59957c2a
+  - enabled: 1
+    path: Assets/Scenes/Transicao03-04.unity
+    guid: 6b113bbc3f458d145ad15c92d7910914
+  - enabled: 1
+    path: Assets/Scenes/Fase04.unity
+    guid: 41935e54825663941b7861aaddb47a8b
+  - enabled: 1
+    path: Assets/Scenes/Transicao04-05.unity
+    guid: 1a649f308b3a29242bcae6f913ff2775
+  - enabled: 1
+    path: Assets/Scenes/Fase05.unity
+    guid: 9e352c64a2327ff48a33f365f9b9a351
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: c29a5f5eaa96f6046b54d7b77b0c8a8b
   m_configObjects: {}

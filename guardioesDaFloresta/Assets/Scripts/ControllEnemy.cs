@@ -17,6 +17,13 @@ public class ControllEnemy : MonoBehaviour
     private int i = 0;
     private float nextDelay;
     private bool isMoving = true;
+    private bool virar = true;
+
+    public GameObject flecha;
+    public Transform firePoint;
+
+    public float delayTiro = 2f;
+    private float nextShot = 0f;
 
     private Animator animator;
 
@@ -31,9 +38,10 @@ public class ControllEnemy : MonoBehaviour
     void Update() {
             if(Time.time >= nextDelay) {
                 if(!isMoving) {
-                    Vector2 escala = transform.localScale;
-                    escala.x = escala.x * -1;
-                    transform.localScale = escala;
+                    Quaternion escala = transform.localRotation;
+                    escala.y = (virar) ? 180 : 0;
+                    virar = !virar;
+                    transform.localRotation = escala;
                     isMoving = true;
                 }
             }
@@ -59,6 +67,15 @@ public class ControllEnemy : MonoBehaviour
                 i = 0;
             else
                 isMoving = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) //&& Time.time > nextShot
+        {
+            nextShot = Time.time + delayTiro;
+            Instantiate(flecha, firePoint.position, firePoint.rotation);
         }
     }
 }
